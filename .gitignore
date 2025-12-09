@@ -1,0 +1,19 @@
+# Ignore Git folder itself
+.git/
+
+# Ignore Mac/System files
+.DS_Store
+
+# STRICTLY IGNORE KEYS AND SECRETS
+id_rsa
+id_rsa.pub
+**/*.pem
+.ssh/
+.gemini/
+.npm/
+.env
+
+# Ignore history files
+.zsh_history
+.bash_history
+.lesshst
