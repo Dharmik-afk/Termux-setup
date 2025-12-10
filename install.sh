@@ -53,6 +53,15 @@ termux-reload-settings
 echo "[*] Setting Zsh as default shell..."
 chsh -s zsh
 
+rm -rf ~/.termux 
+cp -r termux ~/ 
+mv termux ~/.termux
+
+mkdir ~/.local/share/zsh
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.local/share/zsh/
+git clone https://github.com/zsh-users/zsh-autosuggestions.git  ~/local/share/zsh
+
+source ~/.zshrc
 echo "----------------------------------------"
 echo "RESTORE COMPLETE!"
 echo "1. Restart Termux."
