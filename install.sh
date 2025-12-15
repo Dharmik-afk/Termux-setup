@@ -34,6 +34,7 @@ create_link() {
 echo "[*] Linking Dotfiles..."
 create_link "$PWD/home/.zshrc" "$HOME/.zshrc"
 create_link "$PWD/home/.gitconfig" "$HOME/.gitconfig"
+create_link "$PWD/termux" "$HOME/.termux"
 
 echo "[*] Linking Neovim Config..."
 mkdir -p "$HOME/.config"
@@ -53,12 +54,9 @@ termux-reload-settings
 echo "[*] Setting Zsh as default shell..."
 chsh -s zsh
 
-rm -rf ~/.termux
-cp -r termux ~/.termux
-
 mkdir ~/.local/share/zsh
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.local/share/zsh/
-git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/local/share/zsh
+git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.local/share/zsh
 
 source ~/.zshrc
 echo "----------------------------------------"
