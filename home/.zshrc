@@ -2,6 +2,7 @@
 #   Termux Optimized Zsh Config
 # ================================
 # --- PATH Fix (Termux)
+#
 PROMPT="%F{cyan}%n%f %F{yellow}%~%f %# "
 export PREFIX="/data/data/com.termux/files/usr"
 export PATH="$PREFIX/bin:$PREFIX/bin/applets:$PATH"
@@ -13,12 +14,19 @@ export EDITOR="nvim"
 export CMAKE_PREFIX_PATH="$HOME/cpp_libs:$CMAKE_PREFIX_PATH"
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
+export ANDROID_NDK_PATH=$PREFIX/opt/android-ndk/
+export ANDROID_NDK_ROOT=$ANDROID_NDK_PATH
+export GYP_DEFINES="${GYP_DEFINES:+$GYP_DEFINES }android_ndk_path=$ANDROID_NDK_PATH"
+export PROOT="/data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs"
 # --- Aliases
-alias ll='ls -alh'
-alias la='ls -A'
+alias reload='source ~/.zshrc'
+alias la='ls -A -CF'
 alias l='ls -CF'
 alias up='pkg update && pkg upgrade -y'
 alias v='nvim'
+alias config='nvim ~/.zshrc'
+alias newc='python ~/scripts/NewProject.py'
+alias backup='python ~/scripts/backup.py'
 
 # --- History
 HISTFILE=~/.zsh_history
@@ -72,3 +80,4 @@ fdcd() {
   dir=$(fd -t d | fzf) && cd "$dir"
 }
 alias fcd='fdcd'
+
